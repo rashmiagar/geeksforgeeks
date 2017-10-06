@@ -24,14 +24,20 @@ class KLargest {
 		while(numInputs > 0){
 			String b = scn.nextLine();
 			String[] inputs = b.split(" ");  // N k
-			ArrayList<Integer> result = new ArrayList<Integer>(Collections.nCopies(Integer.parseInt(inputs[1]), 0));
+			// System.out.print(inputs[0] + " " + inputs[1]);
+			ArrayList<Integer> result = new ArrayList<Integer>(Integer.parseInt(inputs[1]));
+			for (int i = 0; i < Integer.parseInt(inputs[1]); i++) {
+    			result.add(0);
+			}
+			// System.out.print(result);
 			String[] arr = scn.nextLine().split(" ");
-
-			result.add(Integer.parseInt(arr[0]));
+			result.add(0, Integer.parseInt(arr[0]));
+			// System.out.print(result);
 			for(int i=1; i < arr.length; i++){
 				for(int j=0; j < result.size(); j++){
-					if(Integer.parseInt(arr[i]) > result.get(j)){
+					if(Integer.parseInt(arr[i]) > Integer.valueOf(result.get(j))){
 						result.add(j, Integer.parseInt(arr[i]));
+						// System.out.print(result);
 						break;
 					}
 				}
